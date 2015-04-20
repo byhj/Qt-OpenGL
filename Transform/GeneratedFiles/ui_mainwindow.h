@@ -26,7 +26,6 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
@@ -55,20 +54,20 @@ public:
     QLabel *label_6;
     QLabel *label_7;
     QVBoxLayout *verticalLayout_3;
-    QSpinBox *spinBox;
-    QSpinBox *spinBox_2;
-    QSpinBox *spinBox_3;
-    QSpinBox *spinBox_4;
-    QSpinBox *spinBox_5;
-    QSpinBox *spinBox_6;
+    QDoubleSpinBox *XDoubleSpinBox;
+    QDoubleSpinBox *YDoubleSpinBox;
+    QDoubleSpinBox *ZDoubleSpinBox;
+    QDoubleSpinBox *PitchDoubleSpinBox;
+    QDoubleSpinBox *HeadDoubleSpinBox;
+    QDoubleSpinBox *RollDoubleSpinBox;
     QVBoxLayout *verticalLayout_4;
-    QSlider *horizontalSlider;
-    QSlider *horizontalSlider_2;
-    QSlider *horizontalSlider_3;
-    QSlider *horizontalSlider_4;
-    QSlider *horizontalSlider_5;
-    QSlider *horizontalSlider_6;
-    QPushButton *pushButton;
+    QSlider *XHorizontalSlider;
+    QSlider *YHorizontalSlider;
+    QSlider *ZHorizontalSlider;
+    QSlider *PitchHorizontalSlider;
+    QSlider *HeadHorizontalSlider;
+    QSlider *RollHorizontalSlider;
+    QPushButton *ViewButton;
     QSpacerItem *verticalSpacer;
     QGroupBox *groupBox_2;
     QWidget *layoutWidget;
@@ -89,26 +88,26 @@ public:
     QLabel *label_17;
     QLabel *label_18;
     QVBoxLayout *verticalLayout_7;
-    QSpinBox *spinBox_7;
-    QSpinBox *spinBox_8;
-    QSpinBox *spinBox_9;
-    QSpinBox *spinBox_10;
-    QSpinBox *spinBox_11;
-    QSpinBox *spinBox_12;
-    QSpinBox *spinBox_13;
-    QSpinBox *spinBox_14;
-    QSpinBox *spinBox_15;
+    QDoubleSpinBox *PosXDoubleSpinBox;
+    QDoubleSpinBox *PosYDoubleSpinBox;
+    QDoubleSpinBox *PosZDoubleSpinBox;
+    QDoubleSpinBox *RotXDoubleSpinBox;
+    QDoubleSpinBox *RotZDoubleSpinBox;
+    QDoubleSpinBox *RotYDoubleSpinBox;
+    QDoubleSpinBox *ScaleXDoubleSpinBox;
+    QDoubleSpinBox *ScaleYDoubleSpinBox;
+    QDoubleSpinBox *ScaleZDoubleSpinBox;
     QVBoxLayout *verticalLayout_8;
-    QSlider *horizontalSlider_7;
-    QSlider *horizontalSlider_8;
-    QSlider *horizontalSlider_9;
-    QSlider *horizontalSlider_10;
-    QSlider *horizontalSlider_11;
-    QSlider *horizontalSlider_12;
-    QSlider *horizontalSlider_13;
-    QSlider *horizontalSlider_14;
-    QSlider *horizontalSlider_15;
-    QPushButton *pushButton_2;
+    QSlider *PosXHorizontalSlider;
+    QSlider *PosXHorizontalSlider_2;
+    QSlider *PosXHorizontalSlider_3;
+    QSlider *RotXHorizontalSlider;
+    QSlider *RotYHorizontalSlider;
+    QSlider *RotZHorizontalSlider;
+    QSlider *ScaleXHorizontalSlider;
+    QSlider *ScaleYHorizontalSlider;
+    QSlider *ScaleZHorizontalSlider;
+    QPushButton *modelButton;
     QSpacerItem *verticalSpacer_2;
     QGroupBox *groupBox_3;
     QGridLayout *gridLayout_3;
@@ -120,27 +119,27 @@ public:
     QLabel *label_23;
     QLabel *label_24;
     QVBoxLayout *verticalLayout_10;
-    QDoubleSpinBox *doubleSpinBox;
-    QDoubleSpinBox *doubleSpinBox_2;
-    QDoubleSpinBox *doubleSpinBox_3;
-    QDoubleSpinBox *doubleSpinBox_4;
-    QDoubleSpinBox *doubleSpinBox_5;
-    QDoubleSpinBox *doubleSpinBox_6;
+    QDoubleSpinBox *LeftDoubleSpinBox;
+    QDoubleSpinBox *RightDoubleSpinBox;
+    QDoubleSpinBox *BottomDoubleSpinBox;
+    QDoubleSpinBox *TopDoubleSpinBox;
+    QDoubleSpinBox *NearDoubleSpinBox;
+    QDoubleSpinBox *FarDoubleSpinBox;
     QVBoxLayout *verticalLayout_11;
-    QSlider *horizontalSlider_16;
-    QSlider *horizontalSlider_17;
-    QSlider *horizontalSlider_18;
-    QSlider *horizontalSlider_19;
-    QSlider *horizontalSlider_20;
-    QSlider *horizontalSlider_21;
+    QSlider *LeftHorizontalSlider;
+    QSlider *RightHorizontalSlider;
+    QSlider *BottomHorizontalSlider;
+    QSlider *TopHorizontalSlider;
+    QSlider *NearHorizontalSlider;
+    QSlider *FarHorizontalSlider;
     QGroupBox *groupBox_4;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *PerspRadioButton;
+    QRadioButton *OrthoRadioButton;
     QGroupBox *groupBox_5;
-    QRadioButton *radioButton_3;
-    QRadioButton *radioButton_4;
-    QRadioButton *radioButton_5;
-    QPushButton *pushButton_3;
+    QRadioButton *FillRadioButton;
+    QRadioButton *WireRadioButton;
+    QRadioButton *PointRadioButton;
+    QPushButton *projButton;
     QMenuBar *menuBar;
     QMenu *menuAbout;
     QMenu *menuHelp;
@@ -217,35 +216,35 @@ public:
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        spinBox = new QSpinBox(groupBox);
-        spinBox->setObjectName(QStringLiteral("spinBox"));
+        XDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        XDoubleSpinBox->setObjectName(QStringLiteral("XDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox);
+        verticalLayout_3->addWidget(XDoubleSpinBox);
 
-        spinBox_2 = new QSpinBox(groupBox);
-        spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
+        YDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        YDoubleSpinBox->setObjectName(QStringLiteral("YDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox_2);
+        verticalLayout_3->addWidget(YDoubleSpinBox);
 
-        spinBox_3 = new QSpinBox(groupBox);
-        spinBox_3->setObjectName(QStringLiteral("spinBox_3"));
+        ZDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        ZDoubleSpinBox->setObjectName(QStringLiteral("ZDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox_3);
+        verticalLayout_3->addWidget(ZDoubleSpinBox);
 
-        spinBox_4 = new QSpinBox(groupBox);
-        spinBox_4->setObjectName(QStringLiteral("spinBox_4"));
+        PitchDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        PitchDoubleSpinBox->setObjectName(QStringLiteral("PitchDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox_4);
+        verticalLayout_3->addWidget(PitchDoubleSpinBox);
 
-        spinBox_5 = new QSpinBox(groupBox);
-        spinBox_5->setObjectName(QStringLiteral("spinBox_5"));
+        HeadDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        HeadDoubleSpinBox->setObjectName(QStringLiteral("HeadDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox_5);
+        verticalLayout_3->addWidget(HeadDoubleSpinBox);
 
-        spinBox_6 = new QSpinBox(groupBox);
-        spinBox_6->setObjectName(QStringLiteral("spinBox_6"));
+        RollDoubleSpinBox = new QDoubleSpinBox(groupBox);
+        RollDoubleSpinBox->setObjectName(QStringLiteral("RollDoubleSpinBox"));
 
-        verticalLayout_3->addWidget(spinBox_6);
+        verticalLayout_3->addWidget(RollDoubleSpinBox);
 
 
         horizontalLayout->addLayout(verticalLayout_3);
@@ -253,41 +252,41 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        horizontalSlider = new QSlider(groupBox);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        XHorizontalSlider = new QSlider(groupBox);
+        XHorizontalSlider->setObjectName(QStringLiteral("XHorizontalSlider"));
+        XHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider);
+        verticalLayout_4->addWidget(XHorizontalSlider);
 
-        horizontalSlider_2 = new QSlider(groupBox);
-        horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setOrientation(Qt::Horizontal);
+        YHorizontalSlider = new QSlider(groupBox);
+        YHorizontalSlider->setObjectName(QStringLiteral("YHorizontalSlider"));
+        YHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider_2);
+        verticalLayout_4->addWidget(YHorizontalSlider);
 
-        horizontalSlider_3 = new QSlider(groupBox);
-        horizontalSlider_3->setObjectName(QStringLiteral("horizontalSlider_3"));
-        horizontalSlider_3->setOrientation(Qt::Horizontal);
+        ZHorizontalSlider = new QSlider(groupBox);
+        ZHorizontalSlider->setObjectName(QStringLiteral("ZHorizontalSlider"));
+        ZHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider_3);
+        verticalLayout_4->addWidget(ZHorizontalSlider);
 
-        horizontalSlider_4 = new QSlider(groupBox);
-        horizontalSlider_4->setObjectName(QStringLiteral("horizontalSlider_4"));
-        horizontalSlider_4->setOrientation(Qt::Horizontal);
+        PitchHorizontalSlider = new QSlider(groupBox);
+        PitchHorizontalSlider->setObjectName(QStringLiteral("PitchHorizontalSlider"));
+        PitchHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider_4);
+        verticalLayout_4->addWidget(PitchHorizontalSlider);
 
-        horizontalSlider_5 = new QSlider(groupBox);
-        horizontalSlider_5->setObjectName(QStringLiteral("horizontalSlider_5"));
-        horizontalSlider_5->setOrientation(Qt::Horizontal);
+        HeadHorizontalSlider = new QSlider(groupBox);
+        HeadHorizontalSlider->setObjectName(QStringLiteral("HeadHorizontalSlider"));
+        HeadHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider_5);
+        verticalLayout_4->addWidget(HeadHorizontalSlider);
 
-        horizontalSlider_6 = new QSlider(groupBox);
-        horizontalSlider_6->setObjectName(QStringLiteral("horizontalSlider_6"));
-        horizontalSlider_6->setOrientation(Qt::Horizontal);
+        RollHorizontalSlider = new QSlider(groupBox);
+        RollHorizontalSlider->setObjectName(QStringLiteral("RollHorizontalSlider"));
+        RollHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_4->addWidget(horizontalSlider_6);
+        verticalLayout_4->addWidget(RollHorizontalSlider);
 
 
         horizontalLayout->addLayout(verticalLayout_4);
@@ -295,10 +294,10 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 2, 1);
 
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        ViewButton = new QPushButton(groupBox);
+        ViewButton->setObjectName(QStringLiteral("ViewButton"));
 
-        gridLayout->addWidget(pushButton, 0, 1, 1, 1);
+        gridLayout->addWidget(ViewButton, 0, 1, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 117, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -393,50 +392,50 @@ public:
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setSpacing(6);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        spinBox_7 = new QSpinBox(layoutWidget);
-        spinBox_7->setObjectName(QStringLiteral("spinBox_7"));
+        PosXDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        PosXDoubleSpinBox->setObjectName(QStringLiteral("PosXDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_7);
+        verticalLayout_7->addWidget(PosXDoubleSpinBox);
 
-        spinBox_8 = new QSpinBox(layoutWidget);
-        spinBox_8->setObjectName(QStringLiteral("spinBox_8"));
+        PosYDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        PosYDoubleSpinBox->setObjectName(QStringLiteral("PosYDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_8);
+        verticalLayout_7->addWidget(PosYDoubleSpinBox);
 
-        spinBox_9 = new QSpinBox(layoutWidget);
-        spinBox_9->setObjectName(QStringLiteral("spinBox_9"));
+        PosZDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        PosZDoubleSpinBox->setObjectName(QStringLiteral("PosZDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_9);
+        verticalLayout_7->addWidget(PosZDoubleSpinBox);
 
-        spinBox_10 = new QSpinBox(layoutWidget);
-        spinBox_10->setObjectName(QStringLiteral("spinBox_10"));
+        RotXDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        RotXDoubleSpinBox->setObjectName(QStringLiteral("RotXDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_10);
+        verticalLayout_7->addWidget(RotXDoubleSpinBox);
 
-        spinBox_11 = new QSpinBox(layoutWidget);
-        spinBox_11->setObjectName(QStringLiteral("spinBox_11"));
+        RotZDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        RotZDoubleSpinBox->setObjectName(QStringLiteral("RotZDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_11);
+        verticalLayout_7->addWidget(RotZDoubleSpinBox);
 
-        spinBox_12 = new QSpinBox(layoutWidget);
-        spinBox_12->setObjectName(QStringLiteral("spinBox_12"));
+        RotYDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        RotYDoubleSpinBox->setObjectName(QStringLiteral("RotYDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_12);
+        verticalLayout_7->addWidget(RotYDoubleSpinBox);
 
-        spinBox_13 = new QSpinBox(layoutWidget);
-        spinBox_13->setObjectName(QStringLiteral("spinBox_13"));
+        ScaleXDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        ScaleXDoubleSpinBox->setObjectName(QStringLiteral("ScaleXDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_13);
+        verticalLayout_7->addWidget(ScaleXDoubleSpinBox);
 
-        spinBox_14 = new QSpinBox(layoutWidget);
-        spinBox_14->setObjectName(QStringLiteral("spinBox_14"));
+        ScaleYDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        ScaleYDoubleSpinBox->setObjectName(QStringLiteral("ScaleYDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_14);
+        verticalLayout_7->addWidget(ScaleYDoubleSpinBox);
 
-        spinBox_15 = new QSpinBox(layoutWidget);
-        spinBox_15->setObjectName(QStringLiteral("spinBox_15"));
+        ScaleZDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        ScaleZDoubleSpinBox->setObjectName(QStringLiteral("ScaleZDoubleSpinBox"));
 
-        verticalLayout_7->addWidget(spinBox_15);
+        verticalLayout_7->addWidget(ScaleZDoubleSpinBox);
 
 
         horizontalLayout_2->addLayout(verticalLayout_7);
@@ -444,59 +443,59 @@ public:
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(6);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        horizontalSlider_7 = new QSlider(layoutWidget);
-        horizontalSlider_7->setObjectName(QStringLiteral("horizontalSlider_7"));
-        horizontalSlider_7->setOrientation(Qt::Horizontal);
+        PosXHorizontalSlider = new QSlider(layoutWidget);
+        PosXHorizontalSlider->setObjectName(QStringLiteral("PosXHorizontalSlider"));
+        PosXHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_7);
+        verticalLayout_8->addWidget(PosXHorizontalSlider);
 
-        horizontalSlider_8 = new QSlider(layoutWidget);
-        horizontalSlider_8->setObjectName(QStringLiteral("horizontalSlider_8"));
-        horizontalSlider_8->setOrientation(Qt::Horizontal);
+        PosXHorizontalSlider_2 = new QSlider(layoutWidget);
+        PosXHorizontalSlider_2->setObjectName(QStringLiteral("PosXHorizontalSlider_2"));
+        PosXHorizontalSlider_2->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_8);
+        verticalLayout_8->addWidget(PosXHorizontalSlider_2);
 
-        horizontalSlider_9 = new QSlider(layoutWidget);
-        horizontalSlider_9->setObjectName(QStringLiteral("horizontalSlider_9"));
-        horizontalSlider_9->setOrientation(Qt::Horizontal);
+        PosXHorizontalSlider_3 = new QSlider(layoutWidget);
+        PosXHorizontalSlider_3->setObjectName(QStringLiteral("PosXHorizontalSlider_3"));
+        PosXHorizontalSlider_3->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_9);
+        verticalLayout_8->addWidget(PosXHorizontalSlider_3);
 
-        horizontalSlider_10 = new QSlider(layoutWidget);
-        horizontalSlider_10->setObjectName(QStringLiteral("horizontalSlider_10"));
-        horizontalSlider_10->setOrientation(Qt::Horizontal);
+        RotXHorizontalSlider = new QSlider(layoutWidget);
+        RotXHorizontalSlider->setObjectName(QStringLiteral("RotXHorizontalSlider"));
+        RotXHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_10);
+        verticalLayout_8->addWidget(RotXHorizontalSlider);
 
-        horizontalSlider_11 = new QSlider(layoutWidget);
-        horizontalSlider_11->setObjectName(QStringLiteral("horizontalSlider_11"));
-        horizontalSlider_11->setOrientation(Qt::Horizontal);
+        RotYHorizontalSlider = new QSlider(layoutWidget);
+        RotYHorizontalSlider->setObjectName(QStringLiteral("RotYHorizontalSlider"));
+        RotYHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_11);
+        verticalLayout_8->addWidget(RotYHorizontalSlider);
 
-        horizontalSlider_12 = new QSlider(layoutWidget);
-        horizontalSlider_12->setObjectName(QStringLiteral("horizontalSlider_12"));
-        horizontalSlider_12->setOrientation(Qt::Horizontal);
+        RotZHorizontalSlider = new QSlider(layoutWidget);
+        RotZHorizontalSlider->setObjectName(QStringLiteral("RotZHorizontalSlider"));
+        RotZHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_12);
+        verticalLayout_8->addWidget(RotZHorizontalSlider);
 
-        horizontalSlider_13 = new QSlider(layoutWidget);
-        horizontalSlider_13->setObjectName(QStringLiteral("horizontalSlider_13"));
-        horizontalSlider_13->setOrientation(Qt::Horizontal);
+        ScaleXHorizontalSlider = new QSlider(layoutWidget);
+        ScaleXHorizontalSlider->setObjectName(QStringLiteral("ScaleXHorizontalSlider"));
+        ScaleXHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_13);
+        verticalLayout_8->addWidget(ScaleXHorizontalSlider);
 
-        horizontalSlider_14 = new QSlider(layoutWidget);
-        horizontalSlider_14->setObjectName(QStringLiteral("horizontalSlider_14"));
-        horizontalSlider_14->setOrientation(Qt::Horizontal);
+        ScaleYHorizontalSlider = new QSlider(layoutWidget);
+        ScaleYHorizontalSlider->setObjectName(QStringLiteral("ScaleYHorizontalSlider"));
+        ScaleYHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_14);
+        verticalLayout_8->addWidget(ScaleYHorizontalSlider);
 
-        horizontalSlider_15 = new QSlider(layoutWidget);
-        horizontalSlider_15->setObjectName(QStringLiteral("horizontalSlider_15"));
-        horizontalSlider_15->setOrientation(Qt::Horizontal);
+        ScaleZHorizontalSlider = new QSlider(layoutWidget);
+        ScaleZHorizontalSlider->setObjectName(QStringLiteral("ScaleZHorizontalSlider"));
+        ScaleZHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_8->addWidget(horizontalSlider_15);
+        verticalLayout_8->addWidget(ScaleZHorizontalSlider);
 
 
         horizontalLayout_2->addLayout(verticalLayout_8);
@@ -504,10 +503,10 @@ public:
 
         gridLayout_2->addLayout(horizontalLayout_2, 0, 0, 2, 1);
 
-        pushButton_2 = new QPushButton(layoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        modelButton = new QPushButton(layoutWidget);
+        modelButton->setObjectName(QStringLiteral("modelButton"));
 
-        gridLayout_2->addWidget(pushButton_2, 0, 1, 1, 1);
+        gridLayout_2->addWidget(modelButton, 0, 1, 1, 1);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -559,35 +558,35 @@ public:
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(6);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        doubleSpinBox = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
+        LeftDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        LeftDoubleSpinBox->setObjectName(QStringLiteral("LeftDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox);
+        verticalLayout_10->addWidget(LeftDoubleSpinBox);
 
-        doubleSpinBox_2 = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
+        RightDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        RightDoubleSpinBox->setObjectName(QStringLiteral("RightDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox_2);
+        verticalLayout_10->addWidget(RightDoubleSpinBox);
 
-        doubleSpinBox_3 = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox_3->setObjectName(QStringLiteral("doubleSpinBox_3"));
+        BottomDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        BottomDoubleSpinBox->setObjectName(QStringLiteral("BottomDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox_3);
+        verticalLayout_10->addWidget(BottomDoubleSpinBox);
 
-        doubleSpinBox_4 = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox_4->setObjectName(QStringLiteral("doubleSpinBox_4"));
+        TopDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        TopDoubleSpinBox->setObjectName(QStringLiteral("TopDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox_4);
+        verticalLayout_10->addWidget(TopDoubleSpinBox);
 
-        doubleSpinBox_5 = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox_5->setObjectName(QStringLiteral("doubleSpinBox_5"));
+        NearDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        NearDoubleSpinBox->setObjectName(QStringLiteral("NearDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox_5);
+        verticalLayout_10->addWidget(NearDoubleSpinBox);
 
-        doubleSpinBox_6 = new QDoubleSpinBox(groupBox_3);
-        doubleSpinBox_6->setObjectName(QStringLiteral("doubleSpinBox_6"));
+        FarDoubleSpinBox = new QDoubleSpinBox(groupBox_3);
+        FarDoubleSpinBox->setObjectName(QStringLiteral("FarDoubleSpinBox"));
 
-        verticalLayout_10->addWidget(doubleSpinBox_6);
+        verticalLayout_10->addWidget(FarDoubleSpinBox);
 
 
         gridLayout_3->addLayout(verticalLayout_10, 0, 1, 1, 1);
@@ -595,41 +594,41 @@ public:
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        horizontalSlider_16 = new QSlider(groupBox_3);
-        horizontalSlider_16->setObjectName(QStringLiteral("horizontalSlider_16"));
-        horizontalSlider_16->setOrientation(Qt::Horizontal);
+        LeftHorizontalSlider = new QSlider(groupBox_3);
+        LeftHorizontalSlider->setObjectName(QStringLiteral("LeftHorizontalSlider"));
+        LeftHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_16);
+        verticalLayout_11->addWidget(LeftHorizontalSlider);
 
-        horizontalSlider_17 = new QSlider(groupBox_3);
-        horizontalSlider_17->setObjectName(QStringLiteral("horizontalSlider_17"));
-        horizontalSlider_17->setOrientation(Qt::Horizontal);
+        RightHorizontalSlider = new QSlider(groupBox_3);
+        RightHorizontalSlider->setObjectName(QStringLiteral("RightHorizontalSlider"));
+        RightHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_17);
+        verticalLayout_11->addWidget(RightHorizontalSlider);
 
-        horizontalSlider_18 = new QSlider(groupBox_3);
-        horizontalSlider_18->setObjectName(QStringLiteral("horizontalSlider_18"));
-        horizontalSlider_18->setOrientation(Qt::Horizontal);
+        BottomHorizontalSlider = new QSlider(groupBox_3);
+        BottomHorizontalSlider->setObjectName(QStringLiteral("BottomHorizontalSlider"));
+        BottomHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_18);
+        verticalLayout_11->addWidget(BottomHorizontalSlider);
 
-        horizontalSlider_19 = new QSlider(groupBox_3);
-        horizontalSlider_19->setObjectName(QStringLiteral("horizontalSlider_19"));
-        horizontalSlider_19->setOrientation(Qt::Horizontal);
+        TopHorizontalSlider = new QSlider(groupBox_3);
+        TopHorizontalSlider->setObjectName(QStringLiteral("TopHorizontalSlider"));
+        TopHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_19);
+        verticalLayout_11->addWidget(TopHorizontalSlider);
 
-        horizontalSlider_20 = new QSlider(groupBox_3);
-        horizontalSlider_20->setObjectName(QStringLiteral("horizontalSlider_20"));
-        horizontalSlider_20->setOrientation(Qt::Horizontal);
+        NearHorizontalSlider = new QSlider(groupBox_3);
+        NearHorizontalSlider->setObjectName(QStringLiteral("NearHorizontalSlider"));
+        NearHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_20);
+        verticalLayout_11->addWidget(NearHorizontalSlider);
 
-        horizontalSlider_21 = new QSlider(groupBox_3);
-        horizontalSlider_21->setObjectName(QStringLiteral("horizontalSlider_21"));
-        horizontalSlider_21->setOrientation(Qt::Horizontal);
+        FarHorizontalSlider = new QSlider(groupBox_3);
+        FarHorizontalSlider->setObjectName(QStringLiteral("FarHorizontalSlider"));
+        FarHorizontalSlider->setOrientation(Qt::Horizontal);
 
-        verticalLayout_11->addWidget(horizontalSlider_21);
+        verticalLayout_11->addWidget(FarHorizontalSlider);
 
 
         gridLayout_3->addLayout(verticalLayout_11, 0, 2, 1, 1);
@@ -637,27 +636,27 @@ public:
         groupBox_4 = new QGroupBox(widget);
         groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
         groupBox_4->setGeometry(QRect(270, 70, 131, 81));
-        radioButton = new QRadioButton(groupBox_4);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setGeometry(QRect(20, 30, 89, 16));
-        radioButton_2 = new QRadioButton(groupBox_4);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-        radioButton_2->setGeometry(QRect(20, 60, 111, 16));
+        PerspRadioButton = new QRadioButton(groupBox_4);
+        PerspRadioButton->setObjectName(QStringLiteral("PerspRadioButton"));
+        PerspRadioButton->setGeometry(QRect(20, 30, 89, 16));
+        OrthoRadioButton = new QRadioButton(groupBox_4);
+        OrthoRadioButton->setObjectName(QStringLiteral("OrthoRadioButton"));
+        OrthoRadioButton->setGeometry(QRect(20, 60, 111, 16));
         groupBox_5 = new QGroupBox(widget);
         groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
         groupBox_5->setGeometry(QRect(270, 160, 131, 91));
-        radioButton_3 = new QRadioButton(groupBox_5);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
-        radioButton_3->setGeometry(QRect(20, 20, 89, 16));
-        radioButton_4 = new QRadioButton(groupBox_5);
-        radioButton_4->setObjectName(QStringLiteral("radioButton_4"));
-        radioButton_4->setGeometry(QRect(20, 40, 89, 16));
-        radioButton_5 = new QRadioButton(groupBox_5);
-        radioButton_5->setObjectName(QStringLiteral("radioButton_5"));
-        radioButton_5->setGeometry(QRect(20, 60, 89, 16));
-        pushButton_3 = new QPushButton(widget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(290, 30, 75, 23));
+        FillRadioButton = new QRadioButton(groupBox_5);
+        FillRadioButton->setObjectName(QStringLiteral("FillRadioButton"));
+        FillRadioButton->setGeometry(QRect(20, 20, 89, 16));
+        WireRadioButton = new QRadioButton(groupBox_5);
+        WireRadioButton->setObjectName(QStringLiteral("WireRadioButton"));
+        WireRadioButton->setGeometry(QRect(20, 40, 89, 16));
+        PointRadioButton = new QRadioButton(groupBox_5);
+        PointRadioButton->setObjectName(QStringLiteral("PointRadioButton"));
+        PointRadioButton->setGeometry(QRect(20, 60, 89, 16));
+        projButton = new QPushButton(widget);
+        projButton->setObjectName(QStringLiteral("projButton"));
+        projButton->setGeometry(QRect(290, 30, 75, 23));
         mainwindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainwindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -696,7 +695,7 @@ public:
         label_5->setText(QApplication::translate("mainwindowClass", "Pitch(X)", 0));
         label_6->setText(QApplication::translate("mainwindowClass", "Head(Y)", 0));
         label_7->setText(QApplication::translate("mainwindowClass", "Roll(Z)", 0));
-        pushButton->setText(QApplication::translate("mainwindowClass", "Reset", 0));
+        ViewButton->setText(QApplication::translate("mainwindowClass", "Reset", 0));
         groupBox_2->setTitle(QApplication::translate("mainwindowClass", "Model(World)", 0));
         label_4->setText(QApplication::translate("mainwindowClass", "Poistion", 0));
         label_8->setText(QApplication::translate("mainwindowClass", "Rotate", 0));
@@ -710,7 +709,7 @@ public:
         label_16->setText(QApplication::translate("mainwindowClass", "X", 0));
         label_17->setText(QApplication::translate("mainwindowClass", "Y", 0));
         label_18->setText(QApplication::translate("mainwindowClass", "Z", 0));
-        pushButton_2->setText(QApplication::translate("mainwindowClass", "Reset", 0));
+        modelButton->setText(QApplication::translate("mainwindowClass", "Reset", 0));
         groupBox_3->setTitle(QApplication::translate("mainwindowClass", "Projection Parameters", 0));
         label_19->setText(QApplication::translate("mainwindowClass", "Left", 0));
         label_20->setText(QApplication::translate("mainwindowClass", "Right", 0));
@@ -719,13 +718,13 @@ public:
         label_23->setText(QApplication::translate("mainwindowClass", "Near", 0));
         label_24->setText(QApplication::translate("mainwindowClass", "Far", 0));
         groupBox_4->setTitle(QApplication::translate("mainwindowClass", "Projection Type", 0));
-        radioButton->setText(QApplication::translate("mainwindowClass", "Perspective", 0));
-        radioButton_2->setText(QApplication::translate("mainwindowClass", "Orthographic", 0));
+        PerspRadioButton->setText(QApplication::translate("mainwindowClass", "Perspective", 0));
+        OrthoRadioButton->setText(QApplication::translate("mainwindowClass", "Orthographic", 0));
         groupBox_5->setTitle(QApplication::translate("mainwindowClass", "Rendering Mode", 0));
-        radioButton_3->setText(QApplication::translate("mainwindowClass", "Fill", 0));
-        radioButton_4->setText(QApplication::translate("mainwindowClass", "WireFrame", 0));
-        radioButton_5->setText(QApplication::translate("mainwindowClass", "Point", 0));
-        pushButton_3->setText(QApplication::translate("mainwindowClass", "Reset", 0));
+        FillRadioButton->setText(QApplication::translate("mainwindowClass", "Fill", 0));
+        WireRadioButton->setText(QApplication::translate("mainwindowClass", "WireFrame", 0));
+        PointRadioButton->setText(QApplication::translate("mainwindowClass", "Point", 0));
+        projButton->setText(QApplication::translate("mainwindowClass", "Reset", 0));
         menuAbout->setTitle(QApplication::translate("mainwindowClass", "File", 0));
         menuHelp->setTitle(QApplication::translate("mainwindowClass", "Help", 0));
     } // retranslateUi

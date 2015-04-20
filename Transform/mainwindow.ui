@@ -98,64 +98,64 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QSpinBox" name="spinBox"/>
+           <widget class="QDoubleSpinBox" name="XDoubleSpinBox"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_2"/>
+           <widget class="QDoubleSpinBox" name="YDoubleSpinBox"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_3"/>
+           <widget class="QDoubleSpinBox" name="ZDoubleSpinBox"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_4"/>
+           <widget class="QDoubleSpinBox" name="PitchDoubleSpinBox"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_5"/>
+           <widget class="QDoubleSpinBox" name="HeadDoubleSpinBox"/>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_6"/>
+           <widget class="QDoubleSpinBox" name="RollDoubleSpinBox"/>
           </item>
          </layout>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QSlider" name="horizontalSlider">
+           <widget class="QSlider" name="XHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_2">
+           <widget class="QSlider" name="YHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_3">
+           <widget class="QSlider" name="ZHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_4">
+           <widget class="QSlider" name="PitchHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_5">
+           <widget class="QSlider" name="HeadHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_6">
+           <widget class="QSlider" name="RollHorizontalSlider">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -166,7 +166,7 @@
        </layout>
       </item>
       <item row="0" column="1">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="ViewButton">
         <property name="text">
          <string>Reset</string>
         </property>
@@ -306,94 +306,94 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
-            <widget class="QSpinBox" name="spinBox_7"/>
+            <widget class="QDoubleSpinBox" name="PosXDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_8"/>
+            <widget class="QDoubleSpinBox" name="PosYDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_9"/>
+            <widget class="QDoubleSpinBox" name="PosZDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_10"/>
+            <widget class="QDoubleSpinBox" name="RotXDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_11"/>
+            <widget class="QDoubleSpinBox" name="RotZDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_12"/>
+            <widget class="QDoubleSpinBox" name="RotYDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_13"/>
+            <widget class="QDoubleSpinBox" name="ScaleXDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_14"/>
+            <widget class="QDoubleSpinBox" name="ScaleYDoubleSpinBox"/>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBox_15"/>
+            <widget class="QDoubleSpinBox" name="ScaleZDoubleSpinBox"/>
            </item>
           </layout>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <item>
-            <widget class="QSlider" name="horizontalSlider_7">
+            <widget class="QSlider" name="PosXHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_8">
+            <widget class="QSlider" name="PosXHorizontalSlider_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_9">
+            <widget class="QSlider" name="PosXHorizontalSlider_3">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_10">
+            <widget class="QSlider" name="RotXHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_11">
+            <widget class="QSlider" name="RotYHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_12">
+            <widget class="QSlider" name="RotZHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_13">
+            <widget class="QSlider" name="ScaleXHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_14">
+            <widget class="QSlider" name="ScaleYHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider_15">
+            <widget class="QSlider" name="ScaleZHorizontalSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -404,7 +404,7 @@
         </layout>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="modelButton">
          <property name="text">
           <string>Reset</string>
          </property>
@@ -488,64 +488,64 @@
       <item row="0" column="1">
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+         <widget class="QDoubleSpinBox" name="LeftDoubleSpinBox"/>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+         <widget class="QDoubleSpinBox" name="RightDoubleSpinBox"/>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+         <widget class="QDoubleSpinBox" name="BottomDoubleSpinBox"/>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+         <widget class="QDoubleSpinBox" name="TopDoubleSpinBox"/>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+         <widget class="QDoubleSpinBox" name="NearDoubleSpinBox"/>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+         <widget class="QDoubleSpinBox" name="FarDoubleSpinBox"/>
         </item>
        </layout>
       </item>
       <item row="0" column="2">
        <layout class="QVBoxLayout" name="verticalLayout_11">
         <item>
-         <widget class="QSlider" name="horizontalSlider_16">
+         <widget class="QSlider" name="LeftHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_17">
+         <widget class="QSlider" name="RightHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_18">
+         <widget class="QSlider" name="BottomHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_19">
+         <widget class="QSlider" name="TopHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_20">
+         <widget class="QSlider" name="NearHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider_21">
+         <widget class="QSlider" name="FarHorizontalSlider">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -567,7 +567,7 @@
      <property name="title">
       <string>Projection Type</string>
      </property>
-     <widget class="QRadioButton" name="radioButton">
+     <widget class="QRadioButton" name="PerspRadioButton">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -580,7 +580,7 @@
        <string>Perspective</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QRadioButton" name="OrthoRadioButton">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -606,7 +606,7 @@
      <property name="title">
       <string>Rendering Mode</string>
      </property>
-     <widget class="QRadioButton" name="radioButton_3">
+     <widget class="QRadioButton" name="FillRadioButton">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -619,7 +619,7 @@
        <string>Fill</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_4">
+     <widget class="QRadioButton" name="WireRadioButton">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -632,7 +632,7 @@
        <string>WireFrame</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_5">
+     <widget class="QRadioButton" name="PointRadioButton">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -646,7 +646,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="projButton">
      <property name="geometry">
       <rect>
        <x>290</x>
