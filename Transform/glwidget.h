@@ -6,6 +6,7 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QMatrix4x4>
+#include <QVector3D>
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
@@ -20,11 +21,23 @@ public:
 	QSize minimumSizeHint() const Q_DECL_OVERRIDE;
 	QSize sizeHint() const Q_DECL_OVERRIDE;
 
-	public slots:
+public slots:
 		void setXRotation(int angle);
 		void setYRotation(int angle);
 		void setZRotation(int angle);
 		void setZoom(float zoom);
+		void setPosX(double x);
+		void setPosY(double y);
+		void setPosZ(double z);
+		void setRotateX(double x);
+		void setRotateY(double y);
+		void setRotateZ(double z);
+		void setScaleX(double x);
+		void setScaleY(double y);
+		void setScaleZ(double z);
+		void setCameraX(double x);
+		void setCameraY(double y);
+		void setCameraZ(double z);
 		void cleanup();
 
 signals:
@@ -49,6 +62,10 @@ private:
 	int xRot;
 	int yRot;
 	int zRot;
+	QVector3D Pos;
+	QVector3D Scale;
+	QVector3D Rotate;
+	QVector3D cameraPos;
 	float Zoom;
 	QPoint lastPos;
 	QOpenGLVertexArrayObject vao, axis_vao, grid_vao;

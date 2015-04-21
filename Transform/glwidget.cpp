@@ -41,6 +41,10 @@ GLWidget::GLWidget(QWidget *parent)
 	xRot(0),
 	yRot(0),
 	zRot(0),
+	Pos(0.0, 0.0, 0.0),
+	Scale(1.0, 1.0, 1.0),
+	Rotate(0.0, 0.0, 0.0),
+	cameraPos(0.0, -3.0, -30.0),
 	Zoom(-30.0),
 	program(0),
 	axis_prog(0)
@@ -113,6 +117,62 @@ void GLWidget::setZoom(float zoom)
 
 }
 
+void GLWidget::setPosX(double x)
+{
+  Pos.setX(x);
+}
+
+void GLWidget::setPosY(double y)
+{
+   Pos.setY(y);
+}
+
+void GLWidget::setPosZ(double z)
+{
+   Pos.setZ(z);
+}
+
+void GLWidget::setRotateX(double x)
+{
+    Rotate.setX(x);
+}
+
+void GLWidget::setRotateY(double y)
+{
+	Rotate.setY(y);
+}
+
+void GLWidget::setRotateZ(double z)
+{
+    Rotate.setZ(z);
+}
+
+void GLWidget::setScaleX(double x)
+{
+   Scale.setX(x);
+}
+
+void GLWidget::setScaleY(double y)
+{
+    Scale.setY(y);
+}
+void GLWidget::setScaleZ(double z)
+{
+    Scale.setZ(z);
+}
+
+void GLWidget::setCameraX(double x)
+{
+    cameraPos.setX(x);
+}
+void GLWidget::setCameraY(double y)
+{
+   cameraPos.setY(y);
+}
+void GLWidget::setCameraZ(double z)
+{
+    cameraPos.setZ(z);
+}
 void GLWidget::cleanup()
 {
 	makeCurrent();
@@ -279,13 +339,15 @@ void GLWidget::paintGL()
 	
 	
 	camera.setToIdentity();
-	camera.translate(-1.0f,-5.0f, Zoom);
+	camera.translate(cameraPos.x(), cameraPos.y(), cameraPos.z());
 
 	world.setToIdentity();
 	world.rotate(180.0f - (xRot / 16.0f), 1, 0, 0);
 	world.rotate(yRot / 16.0f, 0, 1, 0);
 	world.rotate(zRot / 16.0f, 0, 0, 1);
-
+    world.translate(Pos.x(), Pos.y(), Pos.z());
+	world.rotate(Rotate.x(), Rotate.y(), Rotate.z());
+	world.scale(Scale.x(), Scale.y(), Scale.z());
 	glLineWidth(5.0f);
 	axis_prog->bind();
 	axis_vao.bind();

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GLWidget_t {
-    QByteArrayData data[13];
-    char stringdata[139];
+    QByteArrayData data[28];
+    char stringdata[265];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,14 +41,32 @@ QT_MOC_LITERAL(8, 84, 12), // "setXRotation"
 QT_MOC_LITERAL(9, 97, 12), // "setYRotation"
 QT_MOC_LITERAL(10, 110, 12), // "setZRotation"
 QT_MOC_LITERAL(11, 123, 7), // "setZoom"
-QT_MOC_LITERAL(12, 131, 7) // "cleanup"
+QT_MOC_LITERAL(12, 131, 7), // "setPosX"
+QT_MOC_LITERAL(13, 139, 1), // "x"
+QT_MOC_LITERAL(14, 141, 7), // "setPosY"
+QT_MOC_LITERAL(15, 149, 1), // "y"
+QT_MOC_LITERAL(16, 151, 7), // "setPosZ"
+QT_MOC_LITERAL(17, 159, 1), // "z"
+QT_MOC_LITERAL(18, 161, 10), // "setRotateX"
+QT_MOC_LITERAL(19, 172, 10), // "setRotateY"
+QT_MOC_LITERAL(20, 183, 10), // "setRotateZ"
+QT_MOC_LITERAL(21, 194, 9), // "setScaleX"
+QT_MOC_LITERAL(22, 204, 9), // "setScaleY"
+QT_MOC_LITERAL(23, 214, 9), // "setScaleZ"
+QT_MOC_LITERAL(24, 224, 10), // "setCameraX"
+QT_MOC_LITERAL(25, 235, 10), // "setCameraY"
+QT_MOC_LITERAL(26, 246, 10), // "setCameraZ"
+QT_MOC_LITERAL(27, 257, 7) // "cleanup"
 
     },
     "GLWidget\0xRotationChanged\0\0angle\0"
     "yRotationChanged\0zRotationChanged\0"
     "zoomChanged\0zoom\0setXRotation\0"
     "setYRotation\0setZRotation\0setZoom\0"
-    "cleanup"
+    "setPosX\0x\0setPosY\0y\0setPosZ\0z\0setRotateX\0"
+    "setRotateY\0setRotateZ\0setScaleX\0"
+    "setScaleY\0setScaleZ\0setCameraX\0"
+    "setCameraY\0setCameraZ\0cleanup"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +76,7 @@ static const uint qt_meta_data_GLWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,17 +84,29 @@ static const uint qt_meta_data_GLWidget[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x06 /* Public */,
-       4,    1,   62,    2, 0x06 /* Public */,
-       5,    1,   65,    2, 0x06 /* Public */,
-       6,    1,   68,    2, 0x06 /* Public */,
+       1,    1,  119,    2, 0x06 /* Public */,
+       4,    1,  122,    2, 0x06 /* Public */,
+       5,    1,  125,    2, 0x06 /* Public */,
+       6,    1,  128,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    1,   71,    2, 0x0a /* Public */,
-       9,    1,   74,    2, 0x0a /* Public */,
-      10,    1,   77,    2, 0x0a /* Public */,
-      11,    1,   80,    2, 0x0a /* Public */,
-      12,    0,   83,    2, 0x0a /* Public */,
+       8,    1,  131,    2, 0x0a /* Public */,
+       9,    1,  134,    2, 0x0a /* Public */,
+      10,    1,  137,    2, 0x0a /* Public */,
+      11,    1,  140,    2, 0x0a /* Public */,
+      12,    1,  143,    2, 0x0a /* Public */,
+      14,    1,  146,    2, 0x0a /* Public */,
+      16,    1,  149,    2, 0x0a /* Public */,
+      18,    1,  152,    2, 0x0a /* Public */,
+      19,    1,  155,    2, 0x0a /* Public */,
+      20,    1,  158,    2, 0x0a /* Public */,
+      21,    1,  161,    2, 0x0a /* Public */,
+      22,    1,  164,    2, 0x0a /* Public */,
+      23,    1,  167,    2, 0x0a /* Public */,
+      24,    1,  170,    2, 0x0a /* Public */,
+      25,    1,  173,    2, 0x0a /* Public */,
+      26,    1,  176,    2, 0x0a /* Public */,
+      27,    0,  179,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -89,6 +119,18 @@ static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Float,    7,
+    QMetaType::Void, QMetaType::Double,   13,
+    QMetaType::Void, QMetaType::Double,   15,
+    QMetaType::Void, QMetaType::Double,   17,
+    QMetaType::Void, QMetaType::Double,   13,
+    QMetaType::Void, QMetaType::Double,   15,
+    QMetaType::Void, QMetaType::Double,   17,
+    QMetaType::Void, QMetaType::Double,   13,
+    QMetaType::Void, QMetaType::Double,   15,
+    QMetaType::Void, QMetaType::Double,   17,
+    QMetaType::Void, QMetaType::Double,   13,
+    QMetaType::Void, QMetaType::Double,   15,
+    QMetaType::Void, QMetaType::Double,   17,
     QMetaType::Void,
 
        0        // eod
@@ -107,7 +149,19 @@ void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 5: _t->setYRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->setZRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->setZoom((*reinterpret_cast< float(*)>(_a[1]))); break;
-        case 8: _t->cleanup(); break;
+        case 8: _t->setPosX((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 9: _t->setPosY((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 10: _t->setPosZ((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 11: _t->setRotateX((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 12: _t->setRotateY((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 13: _t->setRotateZ((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 14: _t->setScaleX((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 15: _t->setScaleY((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 16: _t->setScaleZ((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 17: _t->setCameraX((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 18: _t->setCameraY((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 19: _t->setCameraZ((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 20: _t->cleanup(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -167,13 +221,13 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 21;
     }
     return _id;
 }
