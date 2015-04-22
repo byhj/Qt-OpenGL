@@ -154,6 +154,12 @@
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QSlider" name="XHorizontalSlider">
+            <property name="minimum">
+             <number>-100</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -400,6 +406,9 @@
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
              <widget class="QSlider" name="PosXHorizontalSlider">
+              <property name="minimum">
+               <number>-100</number>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -782,6 +791,7 @@
    <header>glwidget.h</header>
    <container>1</container>
    <slots>
+    <signal>sliderChanged(double)</signal>
     <slot>setPosX(double)</slot>
     <slot>setPosY(double)</slot>
     <slot>setPosZ(double)</slot>
@@ -803,6 +813,7 @@
     <slot>setTop(double)</slot>
     <slot>setNear(double)</slot>
     <slot>setFar(double)</slot>
+    <slot>slider(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -1143,6 +1154,54 @@
     <hint type="destinationlabel">
      <x>996</x>
      <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>mainwindowClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>899</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PosXHorizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>verticalWidget</receiver>
+   <slot>slider(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1255</x>
+     <y>564</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>930</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalWidget</sender>
+   <signal>sliderChanged(double)</signal>
+   <receiver>PosXDoubleSpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>969</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1149</x>
+     <y>567</y>
     </hint>
    </hints>
   </connection>
