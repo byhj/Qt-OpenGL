@@ -6,6 +6,7 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QMatrix4x4>
+#include <QTime>
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
@@ -31,6 +32,8 @@ private:
 	QMatrix4x4 proj;
 	QMatrix4x4 camera;
 	QMatrix4x4 world;
+	QTime time;
+	int frameCount;
 };
 
 #endif

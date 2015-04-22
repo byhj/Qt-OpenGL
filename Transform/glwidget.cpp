@@ -50,6 +50,7 @@ GLWidget::GLWidget(QWidget *parent)
     program(0),
     axis_prog(0)
 {
+frameCount = 0;
 }
 
 GLWidget::~GLWidget()
@@ -334,11 +335,12 @@ void GLWidget::paintGL()
 
     static const GLfloat one[] = {1.0f};
     static const GLfloat black[] = {0.0f, 0.0f, 0.0f, 0.0f};
-    glClearBufferfv(GL_DEPTH, 0, one);
-    glClearBufferfv(GL_COLOR, 0, black);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    
+	glClearBufferfv(GL_DEPTH, 0, one);
+	glClearBufferfv(GL_COLOR, 0, black);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+
+
     camera.setToIdentity();
     camera.translate(cameraPos.x(), cameraPos.y(), cameraPos.z());
 
@@ -349,6 +351,7 @@ void GLWidget::paintGL()
     world.translate(Pos.x(), Pos.y(), Pos.z());
     world.rotate(Rotate.x(), Rotate.y(), Rotate.z());
     world.scale(Scale.x(), Scale.y(), Scale.z());
+
     glLineWidth(5.0f);
     axis_prog->bind();
     axis_vao.bind();
@@ -378,11 +381,18 @@ void GLWidget::paintGL()
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
 	vao.release();
     program->release();
-	
+
+	float f; 
+	if (frameCount == 0) 
+		time.start();
+	else 
+		f = time.elapsed() / float(frameCount);
+
 	QPainter painter(this);
+	frameCount++;
+	QString fps  = QString::number(f);
 	painter.setPen(Qt::red);
-	painter.drawText(100.0, 100.0, QString("APPle"));
-	
+	painter.drawText(50.0, 50.0, QString("FPS:" + fps));
 }
 
 void GLWidget::resizeGL(int w, int h)
