@@ -263,6 +263,8 @@ public:
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         XHorizontalSlider = new QSlider(groupBox);
         XHorizontalSlider->setObjectName(QStringLiteral("XHorizontalSlider"));
+        XHorizontalSlider->setMinimum(-100);
+        XHorizontalSlider->setMaximum(100);
         XHorizontalSlider->setOrientation(Qt::Horizontal);
 
         verticalLayout_4->addWidget(XHorizontalSlider);
@@ -462,6 +464,7 @@ public:
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         PosXHorizontalSlider = new QSlider(groupBox_2);
         PosXHorizontalSlider->setObjectName(QStringLiteral("PosXHorizontalSlider"));
+        PosXHorizontalSlider->setMinimum(-100);
         PosXHorizontalSlider->setOrientation(Qt::Horizontal);
 
         verticalLayout_8->addWidget(PosXHorizontalSlider);
@@ -722,6 +725,9 @@ public:
         QObject::connect(TopDoubleSpinBox, SIGNAL(valueChanged(double)), verticalWidget, SLOT(setTop(double)));
         QObject::connect(NearDoubleSpinBox, SIGNAL(valueChanged(double)), verticalWidget, SLOT(setNear(double)));
         QObject::connect(FarDoubleSpinBox, SIGNAL(valueChanged(double)), verticalWidget, SLOT(setFar(double)));
+        QObject::connect(actionExit, SIGNAL(triggered()), mainwindowClass, SLOT(close()));
+        QObject::connect(PosXHorizontalSlider, SIGNAL(valueChanged(int)), verticalWidget, SLOT(slider(int)));
+        QObject::connect(verticalWidget, SIGNAL(sliderChanged(double)), PosXDoubleSpinBox, SLOT(setValue(double)));
 
         QMetaObject::connectSlotsByName(mainwindowClass);
     } // setupUi

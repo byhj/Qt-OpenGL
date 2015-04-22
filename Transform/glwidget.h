@@ -25,7 +25,6 @@ public slots:
 		void setXRotation(int angle);
 		void setYRotation(int angle);
 		void setZRotation(int angle);
-		void setZoom(float zoom);
 		void setPosX(double x);
 		void setPosY(double y);
 		void setPosZ(double z);
@@ -39,13 +38,15 @@ public slots:
 		void setCameraY(double y);
 		void setCameraZ(double z);
 		void cleanup();
-
+		void slider(int t);
+	
 signals:
 		void xRotationChanged(int angle);
 		void yRotationChanged(int angle);
 		void zRotationChanged(int angle);
 		void zoomChanged(float zoom);
-
+		void sliderChanged(double t);
+		
 protected:
 	void initializeGL() Q_DECL_OVERRIDE;
 	void paintGL() Q_DECL_OVERRIDE;
