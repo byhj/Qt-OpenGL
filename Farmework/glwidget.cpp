@@ -208,41 +208,14 @@ struct Vertex {
 	Vertex(float xa, float ya, float za):x(xa), y(ya), z(za){}
 };
 
-Vertex v[84];
-
-
-void GLWidget::drawGrid(int size, int step)
-{
-	int j =0;
-	for(int i=step; i <= size; i+= step)
-	{
-
-		 v[j++] = Vertex(-size, 0,  i);   // lines parallel to X-axis
-		 v[j++] = Vertex( size, 0,  i);
-		 v[j++] = Vertex(-size, 0, -i);   // lines parallel to X-axis
-		 v[j++] = Vertex( size, 0, -i);
-
-		 v[j++] = Vertex( i, 0, -size);   // lines parallel to Z-axis
-		 v[j++] = Vertex( i, 0,  size);
-		 v[j++] = Vertex(-i, 0, -size);   // lines parallel to Z-axis
-		 v[j++] = Vertex(-i, 0,  size);
-	}
-	glColor3f(1.0f, 0.0f, 0.0f);
-	v[80] = Vertex(-size, 0, 0);
-	v[81] = Vertex( size, 0, 0);
-	glColor3f(0.0f, 1.0f, 0.0f);
-	 v[82] = Vertex(0, 0, -size);
-	 v[83] = Vertex(0, 0,  size);
-}
-
 void GLWidget::initializeGL()
 {
 
   //  connect(context(), &QOpenGLContext::aboutToBeDestroyed, this, &GLWidget::cleanup);
 
 	initializeOpenGLFunctions();
-	glClearColor(0, 0, 0, 1);
 
+	grid.init();
 	program = new QOpenGLShaderProgram;
 	program->addShaderFromSourceFile(QOpenGLShader::Vertex,  "triangle.vert" );
 	program->addShaderFromSourceFile(QOpenGLShader::Fragment, "triangle.frag");
@@ -265,7 +238,9 @@ void GLWidget::initializeGL()
 	ibo.create();
 	ibo.bind();
 	ibo.allocate(ElementData, sizeof(ElementData));
-	setupVertexAttribs();
+	QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
+	f->glEnableVertexAttribArray(0);
+	f->glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	vao.release();
 	program->release();
 
@@ -284,60 +259,30 @@ void GLWidget::initializeGL()
 	axis_vbo.create();
 	axis_vbo.bind();
 	axis_vbo.allocate(AxisData, sizeof(AxisData));
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+	f->glEnableVertexAttribArray(0);
+	f->glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	axis_vbo.release();
 
 	color_vbo = QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
 	color_vbo.create();
 	color_vbo.bind();
 	color_vbo.allocate(color, sizeof(color));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	f->glEnableVertexAttribArray(1);
+	f->glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	axis_vao.release();
 	axis_prog->release();
 
-	grid_prog = new QOpenGLShaderProgram;
-	grid_prog->addShaderFromSourceFile(QOpenGLShader::Vertex,  "grid.vert" );
-	grid_prog->addShaderFromSourceFile(QOpenGLShader::Fragment, "grid.frag");
-	grid_prog->bindAttributeLocation("position", 0);
-	grid_prog->bindAttributeLocation("color", 1);
-	grid_prog->link();
-	grid_prog->bind();
-
-	drawGrid(10, 1);
-	grid_vao.create();
-	grid_vao.bind();
-	// Setup our vertex bufer object.
-	grid_vbo = QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
-	grid_vbo.create();
-	grid_vbo.bind();
-	GLuint vv = sizeof(v);
-	grid_vbo.allocate(&v[0], sizeof(v));
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	grid_vbo.release();
 }
 
-void GLWidget::setupVertexAttribs()
-{
-	vbo.bind();
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	vbo.release();
-}
 
 void GLWidget::paintGL()
 {
 
-	static const GLfloat one[] = {1.0f};
-	static const GLfloat black[] = {0.0f, 0.0f, 0.0f, 0.0f};
-	glClearBufferfv(GL_DEPTH, 0, one);
-	glClearBufferfv(GL_COLOR, 0, black);
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-
 
 	camera.setToIdentity();
 	camera.translate(cameraPos.x(), cameraPos.y(), cameraPos.z());
@@ -349,16 +294,6 @@ void GLWidget::paintGL()
 	world.translate(Pos.x(), Pos.y(), Pos.z());
 	world.rotate(Rotate.x(), Rotate.y(), Rotate.z());
 	world.scale(Scale.x(), Scale.y(), Scale.z());
-
-	glLineWidth(1.0f);
-	grid_prog->bind();
-	grid_vao.bind();
-	grid_prog->setUniformValue(grid_prog->uniformLocation("proj"), proj);
-	grid_prog->setUniformValue(grid_prog->uniformLocation("view"), camera);
-	grid_prog->setUniformValue(grid_prog->uniformLocation("model"), world);
-	glDrawArrays(GL_LINES, 0, 84);
-	grid_vao.release();
-	grid_prog->release();
 
 	glLineWidth(1.0f);
 	program->bind();
@@ -380,6 +315,12 @@ void GLWidget::paintGL()
 	axis_vao.release();
 	axis_prog->release();
 
+	grid.proj = proj;
+	grid.camera = camera;
+	grid.world = world;
+
+	grid.render();
+
 	float f; 
 	if (frameCount == 0) 
 		time.start();
@@ -391,6 +332,8 @@ void GLWidget::paintGL()
 	QString fps  = QString::number(f);
 	painter.setPen(Qt::red);
 	painter.drawText(50.0, 50.0, QString("FPS:" + fps));
+
+
 }
 
 void GLWidget::resizeGL(int w, int h)
