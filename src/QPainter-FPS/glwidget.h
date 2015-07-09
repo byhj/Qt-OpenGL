@@ -1,8 +1,15 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
+#include "cube.h"
+#include "camera.h"
+
 #include <QOpenGLWidget>
+#include <QMouseEvent>
 #include <QTime>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 class GLWidget : public QOpenGLWidget
 {
@@ -26,6 +33,14 @@ protected:
 
 private:
 	QTime time;
+	Cube cube;
+	Camera m_Camera;
+
+	float m_aspect;
+
+	glm::mat4 m_Model;
+	glm::mat4 m_View;
+	glm::mat4 m_Proj;
 };
 
 #endif

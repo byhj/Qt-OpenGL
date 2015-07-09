@@ -1,14 +1,15 @@
-#include "cube.h"
 #include "glwidget.h"
 
 #include <iostream>
 #include <QPainter>
 
-
-
 GLWidget::GLWidget(QWidget *parent)
-	: QOpenGLWidget(parent)
+	: QOpenGLWidget(parent), 
+	m_aspect(1.0f)
 {
+	m_Model = glm::mat4(1.0f);
+	m_View  = glm::mat4(1.0f);
+	m_Proj  = glm::mat4(1.0f);
 }
 
 GLWidget::~GLWidget()
@@ -28,51 +29,41 @@ QSize GLWidget::sizeHint() const
 	return QSize(400, 400);
 }
 
-static const GLfloat VertexData[] = {
-	-0.1f, -0.1f, -0.1f,
-	-0.1f,  0.1f, -0.1f,
-	0.1f, -0.1f, -0.1f,
-	0.1f,  0.1f, -0.1f,
-	0.1f, -0.1f,  0.1f,
-	0.1f,  0.1f,  0.1f,
-	-0.1f, -0.1f,  0.1f,
-	-0.1f,  0.1f,  0.1f,
-};
-
-static const GLushort ElementData[] =
-{
-	0, 1, 2,
-	2, 1, 3,
-	2, 3, 4,
-	4, 3, 5,
-
-	4, 5, 6,
-	6, 5, 7,
-	6, 7, 0,
-	0, 7, 1,
-
-	6, 0, 2,
-	2, 4, 6,
-	7, 5, 3,
-	7, 3, 1
-};
-
-Cube cube;
-
 void GLWidget::initializeGL()
 { 
-	glewInit();
+	GLenum result = glewInit();
+	if (result != GLEW_OK)
+		std::cout << "Init glew Error:" << glGetString(result) << std::endl;
 
 	cube.init();
+
+	glEnable(GL_CULL_FACE);
 }
 
 
 void GLWidget::paintGL()
 {
-	glClearColor(0.2, 0.3, 0.4, 1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-	cube.render();
+	QPainter painter;
+	painter.begin(this);
+
+	painter.beginNativePainting();
+
+	static const GLfloat black[] = {0.2, 0.3, 0.4, 1.0f};
+	static const GLfloat one[] = {1.0f};
+	glClearBufferfv(GL_COLOR, 0, black);
+	glClearBufferfv(GL_DEPTH, 0, one);
+
+	m_Camera.update();
+
+	m_Model = glm::rotate(glm::mat4(1.0f), 30.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+	m_View  = m_Camera.GetView();
+	m_Proj  = m_Camera.GetProj();
+
+	cube.render(m_Model, m_View, m_Proj);
+
+
+	painter.endNativePainting();
+
 
 	static bool startFlag = true;
 	if (startFlag)
@@ -97,10 +88,11 @@ void GLWidget::paintGL()
 		++frame;
 	}
 
-	QPainter painter(this);
 	QString fps  = QString::number(cnt);
-	painter.setPen(Qt::red);
+	painter.setPen(Qt::white);
 	painter.drawText(50.0, 50.0, QString("FPS:" + fps));
+
+	painter.end();
 
 	update();
 }
@@ -108,19 +100,22 @@ void GLWidget::paintGL()
 void GLWidget::resizeGL(int w, int h)
 {
    glViewport(0, 0, w, h);
+   m_aspect = static_cast<float>(w) / static_cast<float>(h);
+   m_Camera.init(m_aspect, 5.0f);
+
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event)
 {
-
+	m_Camera.OnMouseDown(event);
 }
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event)
 {
-
+   m_Camera.OnMouseMove(event);
 }
 
 void GLWidget::wheelEvent(QWheelEvent *event)
 {	
-
+	m_Camera.OnMouseWheel(event);
 }
