@@ -16,9 +16,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-*.lib
-*.dll
-
 #VS Debug
 *.obj
 *.tlog
