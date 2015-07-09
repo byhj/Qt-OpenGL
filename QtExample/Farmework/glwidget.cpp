@@ -333,7 +333,7 @@ void GLWidget::paintGL()
 	painter.setPen(Qt::red);
 	painter.drawText(50.0, 50.0, QString("FPS:" + fps));
 
-
+	update();
 }
 
 void GLWidget::resizeGL(int w, int h)

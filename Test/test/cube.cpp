@@ -46,7 +46,10 @@ void Cube::init_vertexArray()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-
+    
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glDisableVertexAttribArray(0);
 }
 
 void Cube::init_shader()
@@ -62,5 +65,9 @@ void Cube::render()
 {
 	glUseProgram(program);
 	glBindVertexArray(vao);  
+
     glDrawArrays(GL_TRIANGLES, 0, 6);
+
+	glUseProgram(0);
+	glBindVertexArray(0);
 }

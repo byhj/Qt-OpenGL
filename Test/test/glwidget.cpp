@@ -1,21 +1,26 @@
-#include "glwidget.h"
+#include "cube.h"
+
+
 #include <QMouseEvent>
 #include <math.h>
 #include <iostream>
 #include <vector>
 #include <glm/glm.hpp>
 #include <QPainter>
-#include <gl/glew.h>
+#include <QOpenGLShaderProgram>
+#include <QCoreApplication>
+#include "glwidget.h"
+
 
 GLWidget::GLWidget(QWidget *parent)
 	: QOpenGLWidget(parent)
 {
-
 }
 
 GLWidget::~GLWidget()
 {
-
+	makeCurrent();
+    doneCurrent();
 }
 
 
@@ -37,24 +42,81 @@ static void qNormalizeAngle(int &angle)
 		angle -= 360 * 16;
 }
 
-void GLWidget::initializeGL()
+static const GLfloat VertexData[] = {
+	-0.1f, -0.1f, -0.1f,
+	-0.1f,  0.1f, -0.1f,
+	0.1f, -0.1f, -0.1f,
+	0.1f,  0.1f, -0.1f,
+	0.1f, -0.1f,  0.1f,
+	0.1f,  0.1f,  0.1f,
+	-0.1f, -0.1f,  0.1f,
+	-0.1f,  0.1f,  0.1f,
+};
+
+static const GLushort ElementData[] =
 {
-	GLenum result = glewInit();
-	if (result != GLEW_OK)
-		std::cout << "Init glew error" << std::endl;
+	0, 1, 2,
+	2, 1, 3,
+	2, 3, 4,
+	4, 3, 5,
+
+	4, 5, 6,
+	6, 5, 7,
+	6, 7, 0,
+	0, 7, 1,
+
+	6, 0, 2,
+	2, 4, 6,
+	7, 5, 3,
+	7, 3, 1
+};
+
+Cube cube;
+
+void GLWidget::initializeGL()
+{ 
+	glewInit();
 
 	cube.init();
-	glClearColor(0.2, 0.3, 0.4, 1.0);
-
 }
 
 
 void GLWidget::paintGL()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
-
+	glClearColor(0.2, 0.3, 0.4, 1.0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
 	cube.render();
 
+	static bool startFlag = true;
+	if (startFlag)
+	{
+		time.start();
+		startFlag = false;
+	}
+	static int frame = 0;
+	static float lastTime = 0.0f;
+	float currentTime = time.elapsed()/ 1000.0f;
+	static int cnt = 0;
+	std::cout << currentTime << std::endl;
+
+	if (currentTime - lastTime > 1.0f )
+	{
+		lastTime = currentTime;
+		cnt = frame;
+		frame = 0;
+	}
+	else
+	{
+		++frame;
+	}
+
+	QPainter painter(this);
+	QString fps  = QString::number(cnt);
+	painter.setPen(Qt::red);
+	painter.drawText(50.0, 50.0, QString("FPS:" + fps));
+
+	update();
 }
 
 void GLWidget::resizeGL(int w, int h)
