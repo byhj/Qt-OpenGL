@@ -13,11 +13,15 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -29,8 +33,14 @@ class Ui_MainWindowClass
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout;
     GLWidget *openGLWidget;
+    QSlider *horizontalSlider;
+    QLabel *label;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
+    QDateTimeEdit *dateTimeEdit;
     QMenuBar *menuBar;
     QMenu *menuAbount;
     QToolBar *mainToolBar;
@@ -40,22 +50,38 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
-        MainWindowClass->resize(1107, 794);
+        MainWindowClass->resize(1117, 794);
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout = new QGridLayout(centralWidget);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         openGLWidget = new GLWidget(centralWidget);
         openGLWidget->setObjectName(QStringLiteral("openGLWidget"));
-
-        gridLayout->addWidget(openGLWidget, 0, 0, 1, 1);
-
+        openGLWidget->setGeometry(QRect(10, 0, 841, 591));
+        horizontalSlider = new QSlider(centralWidget);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setGeometry(QRect(880, 50, 160, 19));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(880, 20, 54, 12));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(890, 120, 75, 23));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(980, 120, 75, 23));
+        radioButton = new QRadioButton(centralWidget);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setGeometry(QRect(890, 180, 89, 16));
+        radioButton_2 = new QRadioButton(centralWidget);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        radioButton_2->setGeometry(QRect(890, 220, 89, 16));
+        dateTimeEdit = new QDateTimeEdit(centralWidget);
+        dateTimeEdit->setObjectName(QStringLiteral("dateTimeEdit"));
+        dateTimeEdit->setGeometry(QRect(920, 520, 194, 22));
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1107, 31));
+        menuBar->setGeometry(QRect(0, 0, 1117, 23));
         menuAbount = new QMenu(menuBar);
         menuAbount->setObjectName(QStringLiteral("menuAbount"));
         MainWindowClass->setMenuBar(menuBar);
@@ -76,6 +102,11 @@ public:
     void retranslateUi(QMainWindow *MainWindowClass)
     {
         MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0));
+        label->setText(QApplication::translate("MainWindowClass", "Rotate:", 0));
+        pushButton->setText(QApplication::translate("MainWindowClass", "PushButton", 0));
+        pushButton_2->setText(QApplication::translate("MainWindowClass", "PushButton", 0));
+        radioButton->setText(QApplication::translate("MainWindowClass", "RadioButton", 0));
+        radioButton_2->setText(QApplication::translate("MainWindowClass", "RadioButton", 0));
         menuAbount->setTitle(QApplication::translate("MainWindowClass", "About", 0));
     } // retranslateUi
 
