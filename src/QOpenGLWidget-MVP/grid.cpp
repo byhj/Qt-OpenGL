@@ -1,5 +1,6 @@
 #include "grid.h"
 #include <QOpenGLFunctions>
+
 Grid::Grid(): program(0), proj_loc(0), model_loc(0), view_loc(0)
 {
 }
