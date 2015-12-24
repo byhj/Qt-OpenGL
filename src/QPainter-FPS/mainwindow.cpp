@@ -3,6 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
+	//setStyleSheet("background-color: gray;");
 	ui.setupUi(this);
 }
 
